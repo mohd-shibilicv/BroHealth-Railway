@@ -22,7 +22,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["main.d2jqgsuur54ac8.amplifyapp.com", "brohealth-backend.onrender.com", "127.0.0.1", "localhost", "djv9k9ys0eg02.cloudfront.net"]
+ALLOWED_HOSTS = ["main.d2jqgsuur54ac8.amplifyapp.com", "brohealth-backend.onrender.com", "127.0.0.1", "localhost", "djv9k9ys0eg02.cloudfront.net", "brohealth.up.railway.app"]
 
 
 # Application definition
@@ -72,6 +72,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://brohealth-backend.onrender.com",
     "http://brohealth-backend.onrender.com",
     "https://djv9k9ys0eg02.cloudfront.net",
+    "https://brohealth.up.railway.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -81,6 +82,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://brohealth-backend.onrender.com",
     "https://main.d2jqgsuur54ac8.amplifyapp.com",
     "http://main.d2jqgsuur54ac8.amplifyapp.com",
+    "https://brohealth.up.railway.app",
     "http://127.0.0.1:5173",
     "http://127.0.0.1:8000",
     "http://localhost:5173",
