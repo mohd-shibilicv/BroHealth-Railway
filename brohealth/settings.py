@@ -1,5 +1,7 @@
 import os
 import environ
+import dj_database_url
+
 from pathlib import Path
 from datetime import timedelta
 from celery.schedules import crontab
@@ -136,24 +138,16 @@ CHANNEL_LAYERS = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("PROD_DB_NAME"),
-        "USER": env("PROD_DB_USER"),
-        "PASSWORD": env("PROD_DB_PASS"),
-        "HOST": env("PROD_DB_HOST"),
-        "PORT": env("PROD_DB_PORT"),
+        "NAME": env("DB_NAME"),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASS"),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT"),
     }
 }
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": env("DB_NAME"),
-#         "USER": env("DB_USER"),
-#         "PASSWORD": env("DB_PASS"),
-#         "HOST": env("DB_HOST"),
-#         "PORT": env("DB_PORT"),
-#     }
-# }
+if not DEBUG:
+    DATABASES["default"] = dj_database_url.parse(env.str("DATABASE_URL"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
